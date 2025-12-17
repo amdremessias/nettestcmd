@@ -10,10 +10,10 @@ title Teste de Conexao Automatizado
 :SOLICITAR_DOMINIO
 echo.
 echo ====================================================================
-echo ^|              INICIANDO TESTE DE CONEXAO              ^|
+echo ^|              🚀 INICIANDO TESTE DE CONEXAO 🚀             ^|
 echo ====================================================================
 echo.
-set /p DOMINIO="Automaao para Breve Analise da Cnx entre Cliente Servidor. Por favor, digite o DOMINIO ou IP que deseja testar (ex: google.com): "
+set /p DOMINIO="Por favor, digite o DOMINIO ou IP que deseja testar (ex: google.com): "
 
 :: Validacao de entrada
 if "%DOMINIO%"=="" (
@@ -39,7 +39,7 @@ echo.
 
 :: 1. Criacao do Cabecalho do Relatorio
 echo ==================================================================== > "%ARQUIVO_LOG%"
-echo ^| Relatorio de Teste de Conexao - m3ss14s ^| >> "%ARQUIVO_LOG%"
+echo ^| Relatorio de Teste de Conexao - Gerado por Manus ^| >> "%ARQUIVO_LOG%"
 echo ==================================================================== >> "%ARQUIVO_LOG%"
 echo Data e Hora do Teste: %DATE% %TIME% >> "%ARQUIVO_LOG%"
 echo Dominio Testado: %DOMINIO% >> "%ARQUIVO_LOG%"
@@ -49,7 +49,7 @@ echo. >> "%ARQUIVO_LOG%"
 :: 2. Teste NSLOOKUP (Resolucao de Nome)
 :: ====================================================================
 echo.
-echo --- EXECUTANDO NSLOOKUP (Resolucao de Nome)...
+echo --- 🔎 Executando NSLOOKUP (Resolucao de Nome)...
 echo.
 echo --- NSLOOKUP - Resolucao de Nome (DNS) --- >> "%ARQUIVO_LOG%"
 nslookup %DOMINIO% >> "%ARQUIVO_LOG%" 2>&1
@@ -60,7 +60,7 @@ echo. >> "%ARQUIVO_LOG%"
 :: 3. Teste TRACERT (Rota da Rede)
 :: ====================================================================
 echo.
-echo --- EXECUTANDO TRACERT (Rota da Rede)... Pode levar um tempo...
+echo --- 🛤️ Executando TRACERT (Rota da Rede)... Pode levar um tempo...
 echo.
 echo --- TRACERT - Rota de Pacotes (Maximo de 30 Saltos) --- >> "%ARQUIVO_LOG%"
 :: Usando -d para nao resolver nomes de host, acelerando o processo.
@@ -72,7 +72,7 @@ echo. >> "%ARQUIVO_LOG%"
 :: 4. Teste PING (Latencia e Perda de Pacotes)
 :: ====================================================================
 echo.
-echo --- EXECUTANDO PING (Latencia e Perda de Pacotes)... (4 Pacotes)
+echo --- 🟢 Executando PING (Latencia e Perda de Pacotes)... (4 Pacotes)
 echo.
 echo --- PING - Teste de Latencia e Perda de Pacotes (4 pacotes) --- >> "%ARQUIVO_LOG%"
 ping -n 4 %DOMINIO% >> "%ARQUIVO_LOG%" 2>&1
@@ -97,12 +97,12 @@ echo. >> "%ARQUIVO_LOG%"
 :: 6. Sumario do Relatorio e Conclusao
 :: ====================================================================
 echo ==================================================================== >> "%ARQUIVO_LOG%"
-echo ^|                TESTE DE CONEXAO CONCLUIDO                  ^| >> "%ARQUIVO_LOG%"
+echo ^|                ✅ TESTE DE CONEXAO CONCLUIDO               ^| >> "%ARQUIVO_LOG%"
 echo ==================================================================== >> "%ARQUIVO_LOG%"
 
 echo.
 echo ====================================================================
-echo ^|               TESTE CONCLUIDO COM SUCESSO!                 ^|
+echo ^|               ✅ TESTE CONCLUIDO COM SUCESSO!              ^|
 echo ====================================================================
 echo ^| O relatorio completo foi salvo em:
 echo ^| %ARQUIVO_LOG%
